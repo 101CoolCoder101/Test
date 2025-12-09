@@ -3,10 +3,11 @@
 <script>
 let sum=0;
     let num;
-    for(let counter=1;counter<=3;counter+=1){
-        num=Number(prompt("type a number"));
-                          sum+=num;
-    }
-    document.write("Total"+sum);
+do{
+    num=prompt("type");
+    sum+=Number(num);
+}
+while (num!=num || sum===0);
+    document.write("Total is "+sum);
 </script>
 </html>
