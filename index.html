@@ -3,11 +3,12 @@
 <script>
 let ask = prompt('Add, Subtract, Multiply, Divide: a,s,m,d? ');
     if (ask == 'a'){
-        let num1 = prompt('Type in the first number: ');
-        let num2 = prompt('Type in the second number: ');
+        let num1 = number(prompt('Type in the first number: '));
+        let num2 = number(prompt('Type in the second number: '));
         let add = num1 + num2;
         document.write('The answer is: ' + add);
     }
-   
+   else:
+    document.write("I didn't get it");
 </script>
 </html>
