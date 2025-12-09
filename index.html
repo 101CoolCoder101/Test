@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang=en>
 <script>
-let daysinmonth;
-let monthname="mar";
-switch(monthname){
-    case "jan":
-            daysinmonth=31;
-        document.write(daysinmonth);
-            break;
-        case "mar":
-            daysinmonth=31;
-        document.write(daysinmonth);
-            break;
-}     
+let sum=0;
+let counter=1;
+    let num;
+    while(counter <=3){
+        num=Number(prompt("type a number"));
+        sum += num;
+        counter+=1;
+    }
+document.write("sum is" +sum);
 </script>
 </html>
