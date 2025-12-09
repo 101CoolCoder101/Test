@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html lang=en>
 <script>
-let ask = prompt('Add, Subtract, Multiply, Divide: a,s,m,d? ');
-    if (ask == 'a'){
-        let num1 = Number(prompt('Type in the first number: '));
-        let num2 = Number(prompt('Type in the second number: '));
-        let add = num1 + num2;
-        document.write('The answer is: ' + add);
-    }
-    else if (ask == 's'){
-        let num1 = Number(prompt('Type in the first number: '));
-        let num2 = Number(prompt('Type in the second number: '));
-        let add = num1 - num2;
-        document.write('The answer is: ' + add);
-    }
-    else if (ask == 'm'){
-        let num1 = Number(prompt('Type in the first number: '));
-        let num2 = Number(prompt('Type in the second number: '));
-        let add = num1 * num2;
-        document.write('The answer is: ' + add);
-    }
-    else if (ask == 'd'){
-        let num1 = Number(prompt('Type in the first number: '));
-        let num2 = Number(prompt('Type in the second number: '));
-        let add = num1 / num2;
-        document.write('The answer is: ' + add);
-    }
-   else{
-    document.write("...");
-   }
+let daysinmonth;
+let monthname="jan";
+switch(monthname){
+    case "jan":
+            daysinmonth=31;
+        document.write(daysinmonth);
+            break;
+        case "mar":
+            daysinmonth=31;
+        document.write(daysinmonth);
+            break;
+}     
 </script>
 </html>
