@@ -2,13 +2,11 @@
 <html lang=en>
 <script>
 let sum=0;
-let counter=1;
-    let num;
-    while(counter <=3){
-        num=Number(prompt("type a number"));
-        sum += num;
-        counter+=1;
-    }
-document.write("sum is" +sum);
+    let num=prompt("type or cancel");
+    while(num!null){
+    sum+=Number(num);
+        num=prompt("type or cancel);
+                   }
+document.write("sum is" + sum);
 </script>
 </html>
