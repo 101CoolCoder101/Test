@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang=en>
-  <script>
- const left = eval(prompt("Enter left"));
- const right= eval(prompt("Enter right"));
-    const result= left+right;
-    document.write(result);
-  </script>
-  <noscript>
-    Your javascript's off.
-  </noscript>
+<script>
+document.write('Welcome to Calculator (Can Perform 7 Operations) by Aima.I!');
+let ask = prompt('Add, Subtract, Multiply, Divide: a,s,m,d? ');
+    if (ask == 'a'){
+        let num1 = prompt('Type in the first number: ');
+        let num2 = prompt('Type in the second number: ');
+        let add = num1 + num2;
+        document.write('The answer is: ' + add);
+        let re = prompt('Again (yes/no)? ');
+    }
+   
+</script>
 </html>
