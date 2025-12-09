@@ -8,8 +8,26 @@ let ask = prompt('Add, Subtract, Multiply, Divide: a,s,m,d? ');
         let add = num1 + num2;
         document.write('The answer is: ' + add);
     }
+    else if (ask == 's'){
+        let num1 = Number(prompt('Type in the first number: '));
+        let num2 = Number(prompt('Type in the second number: '));
+        let add = num1 - num2;
+        document.write('The answer is: ' + add);
+    }
+    else if (ask == 'm'){
+        let num1 = Number(prompt('Type in the first number: '));
+        let num2 = Number(prompt('Type in the second number: '));
+        let add = num1 * num2;
+        document.write('The answer is: ' + add);
+    }
+    else if (ask == 'd'){
+        let num1 = Number(prompt('Type in the first number: '));
+        let num2 = Number(prompt('Type in the second number: '));
+        let add = num1 / num2;
+        document.write('The answer is: ' + add);
+    }
    else{
-    document.write("I didn't get it");
+    document.write("...");
    }
 </script>
 </html>
