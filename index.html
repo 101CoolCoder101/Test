@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html lang=en>
 <script>
-let vari;
-alert("Hey there! Let's have a game");
-    vari = prompt("FOr a surprise, write frmo 1 or 5");
-    if (vari==="1"){
-        alert("You said 1!");
+let sum=0;
+    let num;
+    for(let counter=1;counter<=3;counter+=1){
+        num=Number(prompt("type a number"));
+                          sum+=num;
     }
-      else if (vari==="2"){
-        alert("You said 2!");
-    }
-      else if (vari==="3"){
-        alert("You said 3!");
-    }
-      else if (vari==="4"){
-        alert("You said 4!");
-    }
-      else if (vari==="5"){
-        alert("You said 5!");
-    }
+    document.write("Total"+sum);
 </script>
 </html>
