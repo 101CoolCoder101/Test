@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang=en>
+    <div id="my-div"></div>
+    <button id="my-button"></button>
 <script>
-let sum=0;
-    let num;
-do{
-    num=prompt("type");
-    sum+=Number(num);
-}
-while (num!==num || sum===0);
-    document.write("Total is "+sum);
+const button = document.getElementById('my-button');
+    button.addEventListener('click', function() {
+        const myDiv = document.getElementById('my-div');
+        myDiv.innerHTML = '<h1>Hello Click World!</h1>';
+    });
+        
 </script>
 </html>
