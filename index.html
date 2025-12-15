@@ -1,11 +1,144 @@
 <!DOCTYPE html>
 <html lang=en>
     <script>
-let sum=0;
-do{
-    let num=prompt("type a number: ");
+alert('Welcome to Choose Your Own Adventure: The House of Games by Aima.I!');
+alert('Loading...');
+let end = False;
+let variable = 0;
+alert('One morning, you wake up to find yourself in an unknown place.');
+alert('The first thing you notice is a torch of fire on the wall, and you wonder whether to take it or not.');
+alert('Options available:');
+alert('(A) Take the torch.');
+alert('(B) Leave the torch.');
+let q1 = prompt('> ');
+if (q1 === 'A'){
+  alert("Deciding to take the torch with you, you explore the room you're in in hopes of finding a way out.");
+  variable = 1;
+} else {
+  alert("Deciding it's not worth the bother, you explore the room you're in in hopes of finding a way out.");
+  variable = 2;
 }
-while (num!==null || sum===0);
+alert("You stumble across a door but when you try the handle, a message pops up with a riddle on it. It says - in order to open the door, you must answer the following riddle: ");
+alert("What is always only in front of you but cannot be seen?");
+function restart() {
+  alert('There are there are three possible answers to the riddle, but only one is correct. Which could it be?');
+  alert('(A) Air.');
+  alert('(B) Space.');
+  alert('(C) The future.');
+  let q2 = prompt('> ');
+  if (q2 === 'A'){
+    alert('You are incorrect, and a hidden trapdoor suddenly opens up under you, sending you falling into the void below.');
+    alert("You think it's the end, but after a moment, your feet touches firm ground.");
+    alert("You look up and see a river of lava in front of you, and three forms of transport that you can choose. Which one should you pick?");
+    alert('(A) A raft made of thin rock.');
+    alert('(B) A ship created from strong metal.');
+    alert('(C) A boat built with thick wood.');
+    let q3 = prompt('> ');
+    if (q3 === 'A'){
+      alert('Making up your mind, you choose the raft made of thin rock, and set off onto the river. To your delight, your choice was correct, and you reach the other side unharmed.')
+      alert("You find yourself back in the room of the riddle, and you realise you've been given a second chance to answer correctly.")
+      alert('You reread the riddle, which says: What is always only in front of you, but cannot be seen?')     
+      restart()
+    } else if (q3 === 'B'){
+      alert("Deciding quickly, you pick the ship created from strong metal, thinking it to be a good choice. However, it's only when you set off onto the river that you realise your mistake.");
+      alert("The metal boat, although it's strong, is too heavy to float. Within seconds, the ship sinks into the lava, taking you with it.");
+      alert("The End.");
+      end = True;
+    } else if (q3 === 'C') {
+      alert("After a moment of hesitation, you decide that the boat built from wood is the best option. However, when you set off onto the river, you realise that your pick was unwise.") 
+      alert("In just seconds, the boat of wood is swallowed up by the river, burnt away like matchwood. It's too late to do anything now.")
+      alert('The End.')
+      end = True
+      }
+  } //For Q 1.
+  if (q2 === 'B') {
+    alert('You are incorrect, and all of a sudden the room around you vanishes as you teleport somewhere else. Two portals appear in front of you, swirling hypnotically.')
+    alert('One of the portals will bring you back to the room of the riddle, giving you another chance. But the other portal will only lead to your doom. Which will you pick?')
+    alert('(A) The first portal.')
+    alert('(B) The second portal.')
+    let q4 = prompt('> ')
+    if (q4 === 'A'):
+      alert('By pure luck, you managed to step into the right portal, and immediatly get teleported back to the room of the riddle for a second chance.')
+      alert('To refresh your memory, you reread the riddle, hoping to answer correctly this time: What is always only in front of you, but cannot be seen?')
+      restart()
+    if (q4 === 'B'):
+      alert("Unfortunately, you've picked the wrong portal, but you only realise that once you step inside. The portal sucks you in greedily and you're never seen again, lost amongst the whirling void.")
+      alert('The End.')
+      end = True
+  if === === 'C':
+    alert("To your delight, your answer is correct. The door swings open by itself, revealing a dark corridor ending in three tunnels. One of the tunnels you must venture into, but which one? There are three options, and they are:")
+    alert("(A) A tunnel shaped as a lion's mouth.")
+    alert("(B) A tunnel full of snakes.")
+    alert("(C) A tunnel bathed in white light.")
+    let q5 = prompt('> ')
+    if q5 === 'A':
+      alert("Steadying your nerves, you step into the tunnel shaped as a lion's mouth, believing it to be the wisest choice. However, it's only when the tunnel suddenly closes behind you that your confidence drops.")
+      alert("You continue forward hopefully, but all of a sudden you are met with a dead end, and that's when you finally realise you're trapped. There's no way out this time - you're doomed to stay here forever.")
+      alert('The End.')
+      end = True
+    if q5 === 'B':
+      alert('Deciding to face your fears, you walk straight into the tunnel of snakes, hoping to reach the end alive.')
+      if variable === 1:
+        alert("Using the torch of fire you took with you in the beginning, you successfully scare all the snakes away, reaching the end of the tunnel unharmed.")
+        alert("Another door awaits you, but at the same time you notice a signboard beside the door, the words in white standing out against the black of the board. There are two options available:")
+        alert("(A) Open the door and go forward without reading the signboard.")
+        alert("(B) Read the signboard first and then enter through the doorway.")
+        let q6 = prompt('> ')
+        if q6 === 'A':
+          alert("Deciding to enter without reading the signboard is an extremely unwise action, and it doesn't end well for you. Suddenly you find yourself surrounded by poisonous insects, and no matter how hard you try to ward them off, they won't go away. It's not long before they overpower you, and you can only regret that you didn't read the signboard first.")
+          alert("The End.")
+          end = True
+        if q6 === 'B':
+          alert("The sign says that on the opposite side of the door live a swarm of poisonous insects, that could overpower you in just seconds. There are three types of clothing available that you can wear to protect yourself. They are: ")
+          alert('(A) A suit of armour.')
+          alert('(B) A long cloak.')
+          alert('(C) A set of rags.')
+          let q7 = prompt('> ')
+          if q7 === 'A':
+              alert("You believe the suit of armour to be the best choice, so strapping it on confidently, you open the door. As you venture through the corridor beyond, the insects swarm around you, but are unable to do anything due to the armour you're wearing.") 
+              alert("However, although the suit of armour may have protected you from the insects, later on it becomes a disadvantage. As you continue down the corridor, the tunnel becomes more narrow, and with the suit of armour you're wearing, you get stuck.")
+              alert("You try to turn around, but it's too late - you're stuck in the tunnel, and there's no way you can get free. You're left all by yourself to suffer your fate, and there's nothing you can do about it.")
+              alert("The End.")
+              end = True
+          if q7 === 'B':
+              alert("You drape the long cloak over yourself, thinking it could conceal you amongst the dark. Opening the door, you advance forth, the cloak sweeping majestically behind you.")
+              alert("But it's the noise that the cloak makes when it brushes against the ground that warns the insects of your presence. One by one, they crowd around you, their incessant buzzing becoming louder by the seconds.")
+              alert("It's only then that you realise you've picked the wrong choice - but by then, it's too late to turn back. The insects have seen you, and they're not going to let you escape until you're no longer alive.")
+              alert("The End.")     
+              end = True  
+           
+          if q7 === 'C':
+              alert("Although it may seem a strange choice, you decide to wear the rags. Opening the door and silently slipping out, you make your way down the corridor, hoping the insects won't hear you.")
+              alert("And surprisingly, it's the rags that help you survive. Unlike the suit of armour or the long cloak, the rags are neither big nor make any noise. You reach the end of the corridor unharmed and find yourself in a large arena, with a tall, grand door at the end.")
+              alert("A guard stands near the door gripping a sword in one hand, his eyes betraying no emotion from behind his helmet. He tells you that there's one last test you have to pass before finally being allowed to leave this house through the door. He challenges you to a duel, and with no choice, you agree.")
+              alert("However, you have a choice of three weapons to fight the guard with, and they are: ")
+              alert('(A) A sharp stick.')
+              alert('(B) A bow and arrow.')
+              alert('(C) A dagger.')
+              let q8 = prompt ('> ')
+              if q8 === 'A':
+                alert('Clutching the sharp stick in one hand, you turn to face the guard, who advances forth with his sword. He leaps towards you but you dodge his attack, swerving around him and whacking him hard at the back of his head with your stick. The guard slumps down, unconsious, and you turn towards the grand door eagerly.')
+                alert("You fear it may be locked, but the door opens when you try the handle, revealing the outside world beyond. After so much time and effort, you've finally gained what you've been searching for this whole time - freedom.")
+                alert("Congratulations - you've survived!")
+                end = True
+              if q8 === 'B':
+               alert("You take the bow and arrow and look at the guard, who steps forward into the arena. He lunges forward, swinging his sword, but you dodge and fire an arrow towards him. The guard ducks and the arrow misses him, whooshing above him instead.")
+               alert("It's only then that you realise how unwise your choice was: you only had one arrow, which you just used. The reality is clear - with no way to fight with a bow, you're doomed. If only you had slent more time in contemplating your choice, perhaps you would have escaped from this place alive.")
+               alert('The End.')
+               end = True
+              if q8 === 'C':
+               alert("You snatch the dagger and leap towards the guard, who effortlessly flicks the dagger from your hand with his sword. With no weapon left, you've lost the duel, and the guard has won. There's nothing you can do to escape your fate now.")
+               alert("The End.")
+               end = True              
+      elif variable === 2:
+        alert("The snakes appear from nowhere, writhing and hissing, and it's only when they start advancing that you realise there's no escape.")
+        alert("Your last thoughts are that perhaps you would have been able to chase the snakes away if you had taken the torch of fire with you in the beginning.")
+    if q5 === 'C':
+      alert('Brimming with confidence, you step into the tunnel of white light, believing that your choice was correct. But suddenly you find yourself falling through thin air, the blinding white light blurring around you as you continue falling and falling without an end.')
+      alert('The End.')
+      end = True  
+}
+restart() 
     </script>
     
 </html>
