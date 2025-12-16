@@ -56,7 +56,7 @@ function restart() {
             alert('One of the portals will bring you back to the room of the riddle, giving you another chance. But the other portal will only lead to your doom. Which will you pick?');
             alert('(A) The first portal.');
             alert('(B) The second portal.');
-            let q4 = prompt('> ')
+            let q4 = prompt('> ');
              if (q4 === 'A'){
                       alert('By pure luck, you managed to step into the right portal, and immediatly get teleported back to the room of the riddle for a second chance.');
                       alert('To refresh your memory, you reread the riddle, hoping to answer correctly this time: What is always only in front of you, but cannot be seen?');
@@ -89,8 +89,7 @@ function restart() {
                                               alert("Deciding to enter without reading the signboard is an extremely unwise action, and it doesn't end well for you. Suddenly you find yourself surrounded by poisonous insects, and no matter how hard you try to ward them off, they won't go away. It's not long before they overpower you, and you can only regret that you didn't read the signboard first.");
                                               alert("The End.");
                                               end = True;
-                                    }
-                                    else if q6 === 'B'{
+                                    } else if (q6 === 'B'){
                                                   alert("The sign says that on the opposite side of the door live a swarm of poisonous insects, that could overpower you in just seconds. There are three types of clothing available that you can wear to protect yourself. They are: ");
                                                    alert('(A) A suit of armour.');
                                                   alert('(B) A long cloak.');
@@ -102,16 +101,13 @@ function restart() {
                                                             alert("You try to turn around, but it's too late - you're stuck in the tunnel, and there's no way you can get free. You're left all by yourself to suffer your fate, and there's nothing you can do about it.");
                                                             alert("The End.");
                                                             end = True;
-                                                  }
-                                                  else if (q7 === 'B'){
+                                                  } else if (q7 === 'B'){
                                                                 alert("You drape the long cloak over yourself, thinking it could conceal you amongst the dark. Opening the door, you advance forth, the cloak sweeping majestically behind you.");
                                                                 alert("But it's the noise that the cloak makes when it brushes against the ground that warns the insects of your presence. One by one, they crowd around you, their incessant buzzing becoming louder by the seconds.");
                                                                 alert("It's only then that you realise you've picked the wrong choice - but by then, it's too late to turn back. The insects have seen you, and they're not going to let you escape until you're no longer alive.");
                                                                 alert("The End.");     
                                                                 end = True;
-                                                  }
-           
-                                                 else if (q7 === 'C'){
+                                                  } else if (q7 === 'C'){
                                                                 alert("Although it may seem a strange choice, you decide to wear the rags. Opening the door and silently slipping out, you make your way down the corridor, hoping the insects won't hear you.");
                                                                 alert("And surprisingly, it's the rags that help you survive. Unlike the suit of armour or the long cloak, the rags are neither big nor make any noise. You reach the end of the corridor unharmed and find yourself in a large arena, with a tall, grand door at the end.");
                                                                 alert("A guard stands near the door gripping a sword in one hand, his eyes betraying no emotion from behind his helmet. He tells you that there's one last test you have to pass before finally being allowed to leave this house through the door. He challenges you to a duel, and with no choice, you agree.");
@@ -120,40 +116,35 @@ function restart() {
                                                                 alert('(B) A bow and arrow.');
                                                                 alert('(C) A dagger.');
                                                                 let q8 = prompt ('> ');
-                                                                          if (q8 === 'A'){
-                                                                                      alert('Clutching the sharp stick in one hand, you turn to face the guard, who advances forth with his sword. He leaps towards you but you dodge his attack, swerving around him and whacking him hard at the back of his head with your stick. The guard slumps down, unconsious, and you turn towards the grand door eagerly.');
-                                                                                      alert("You fear it may be locked, but the door opens when you try the handle, revealing the outside world beyond. After so much time and effort, you've finally gained what you've been searching for this whole time - freedom.");
-                                                                                      alert("Congratulations - you've survived!");
-                                                                                      end = True;
-                                                                          }
-                                                                          else if (q8 === 'B'){
-                                                                                     alert("You take the bow and arrow and look at the guard, who steps forward into the arena. He lunges forward, swinging his sword, but you dodge and fire an arrow towards him. The guard ducks and the arrow misses him, whooshing above him instead.");
-                                                                                     alert("It's only then that you realise how unwise your choice was: you only had one arrow, which you just used. The reality is clear - with no way to fight with a bow, you're doomed. If only you had slent more time in contemplating your choice, perhaps you would have escaped from this place alive.");
-                                                                                     alert('The End.');
-                                                                                    end = True;
-                                                                          }
-                                                                          else if (q8 === 'C'){
-                                                                                alert("You snatch the dagger and leap towards the guard, who effortlessly flicks the dagger from your hand with his sword. With no weapon left, you've lost the duel, and the guard has won. There's nothing you can do to escape your fate now.");
-                                                                                alert("The End.");
-                                                                                end = True; 
-                                                                          }
+                                                                if (q8 === 'A'){
+                                                                      alert('Clutching the sharp stick in one hand, you turn to face the guard, who advances forth with his sword. He leaps towards you but you dodge his attack, swerving around him and whacking him hard at the back of his head with your stick. The guard slumps down, unconsious, and you turn towards the grand door eagerly.');
+                                                                      alert("You fear it may be locked, but the door opens when you try the handle, revealing the outside world beyond. After so much time and effort, you've finally gained what you've been searching for this whole time - freedom.");
+                                                                      alert("Congratulations - you've survived!");
+                                                                       end = True;
+                                                                 }  else if (q8 === 'B'){
+                                                                       alert("You take the bow and arrow and look at the guard, who steps forward into the arena. He lunges forward, swinging his sword, but you dodge and fire an arrow towards him. The guard ducks and the arrow misses him, whooshing above him instead.");
+                                                                      alert("It's only then that you realise how unwise your choice was: you only had one arrow, which you just used. The reality is clear - with no way to fight with a bow, you're doomed. If only you had slent more time in contemplating your choice, perhaps you would have escaped from this place alive.");
+                                                                      alert('The End.');
+                                                                      end = True;
+                                                                 } else if (q8 === 'C'){
+                                                                      alert("You snatch the dagger and leap towards the guard, who effortlessly flicks the dagger from your hand with his sword. With no weapon left, you've lost the duel, and the guard has won. There's nothing you can do to escape your fate now.");
+                                                                      alert("The End.");
+                                                                      end = True; 
+                                                             } //for q8===c
               
-          }
-          }
-                              }
-      elif (variable === 2):
-        alert("The snakes appear from nowhere, writhing and hissing, and it's only when they start advancing that you realise there's no escape.");
-        alert("Your last thoughts are that perhaps you would have been able to chase the snakes away if you had taken the torch of fire with you in the beginning.");
-                      }
-                          if (q5 === 'C'){
+          } //if q7===c
+          } //if q6===b
+                              } else if (variable === 2):
+                                      alert("The snakes appear from nowhere, writhing and hissing, and it's only when they start advancing that you realise there's no escape.");
+                                        alert("Your last thoughts are that perhaps you would have been able to chase the snakes away if you had taken the torch of fire with you in the beginning.");
+                                         end = True;
+                      } else if (q5 === 'C'){
       alert('Brimming with confidence, you step into the tunnel of white light, believing that your choice was correct. But suddenly you find yourself falling through thin air, the blinding white light blurring around you as you continue falling and falling without an end.');
       alert('The End.');
       end = True;
     }
-}
-  
-  
-restart() 
+} //if  q4===c
+restart();
     </script>
     
 </html>
