@@ -1,12 +1,15 @@
 <!DOCTYPE HTML>
 <html>
-  <form action="https://formspree.io/f/yourFormID" method="POST">
-  <label>Your email:</label>
-  <input type="email" name="email" required>
+<form action="https://formsubmit.co/aima13islam@gmail.com" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
 
-  <label>Your message:</label>
-  <textarea name="message" required></textarea>
+  <!-- optional settings -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
 
   <button type="submit">Send</button>
 </form>
+
 </html>
