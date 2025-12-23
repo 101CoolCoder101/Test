@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>HTML Output Test</title>
-</head>
 <body>
 
-  <h2>Type something:</h2>
+<input id="msg" type="text" placeholder="Write HTML or JS...">
+<button onclick="run()">Submit</button>
 
-  <input id="msg" type="text" placeholder="Write here...">
-  <button onclick="showMsg()">Submit</button>
+<h3>Output:</h3>
+<div id="output"></div>
 
-  <h3>Output:</h3>
-  <div id="output"></div>
+<script>
+function run() {
+  const text = document.getElementById("msg").value;
 
-  <script>
-    function showMsg() {
-      const text = document.getElementById("msg").value;
-      document.getElementById("output").innerHTML = text; // <-- THIS executes HTML
-    }
-  </script>
+  // Show HTML normally
+  document.getElementById("output").innerHTML = text;
+
+  // Extract JS inside <script>...</script>
+  const scriptMatch = text.match(/<script>([\s\S]*?)<\/script>/);
+
+  if (scriptMatch) {
+    const jsCode = scriptMatch[1];
+    eval(jsCode); // ⚠️ executes the JS
+  }
+}
+</script>
 
 </body>
 </html>
