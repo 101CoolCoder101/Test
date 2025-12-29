@@ -25,23 +25,18 @@
 
 <body>
 
-<!-- SEARCH BAR -->
 <input type="text" id="search" placeholder="Search..." onkeyup="searchPage()">
 
-<!-- YOUR PAGE CONTENT ALREADY EXISTS BELOW THIS -->
-    <h1 class="post">bLahhhhhhhh this is a test test i want test blah nonsense blah blah </h1>
-<!-- The script will automatically search inside anything with class="post" -->
+<h1 class="post">bLahhhhhhhh this is a test test i want test blah nonsense blah blah</h1>
 
 <script>
 function searchPage() {
     const query = document.getElementById("search").value.toLowerCase();
-
-    // CHANGE ".post" ONLY IF your blog uses a different class
     const items = document.querySelectorAll(".post");
 
     items.forEach(item => {
         const text = item.innerText.toLowerCase();
-        item.style.display = text.includes(query) ? "" : "none";
+        item.style.display = text.includes(query) ? "block" : "none";
     });
 }
 </script>
