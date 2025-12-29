@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Search</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    #search {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- SEARCH BAR -->
+<input type="text" id="search" placeholder="Search..." onkeyup="searchPage()">
+
+<!-- YOUR PAGE CONTENT ALREADY EXISTS BELOW THIS -->
+<!-- The script will automatically search inside anything with class="post" -->
+
+<script>
+function searchPage() {
+    const query = document.getElementById("search").value.toLowerCase();
+
+    // CHANGE ".post" ONLY IF your blog uses a different class
+    const items = document.querySelectorAll(".post");
+
+    items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(query) ? "" : "none";
+    });
+}
+</script>
+
+</body>
+</html>
