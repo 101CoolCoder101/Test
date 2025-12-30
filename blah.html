@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Acme Solutions — We Fix Everything</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4b6fff, #6f9bff);
+      color: #fff;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+    }
+
+    .logo span {
+      opacity: 0.8;
+      font-weight: 500;
+      font-size: 0.8rem;
+      display: block;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #e5ebff;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #3554ff;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      padding: 0 20px 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      color: #111827;
+    }
+
+    .hero-text h1 span {
+      color: #3554ff;
+    }
+
+    .hero-text p {
+      color: #4b5563;
+      margin-bottom: 20px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #cbd5f5;
+      background: #f9fbff;
+      color: #374151;
+      cursor: pointer;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .hero-card {
+      background: #111827;
+      color: #e5e7eb;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 18px 45px rgba(15,23,42,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle at top left, rgba(96,165,250,0.25), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .hero-pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(55,65,81,0.7);
+    }
+
+    .hero-card-metric {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .hero-card-sub {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.7rem;
+    }
+
+    .hero-card-tags span {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(31,41,55,0.9);
+      border: 1px solid rgba(55,65,81,0.8);
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      color: #111827;
+    }
+
+    .section-header p {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .cards {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #4b5563;
+      margin-bottom: 10px;
+    }
+
+    .card-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.75rem;
+      background: #e0ecff;
+      color: #1d4ed8;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      margin-right: 6px;
+    }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 18px 20px 30px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    footer a {
+      color: #4b6fff;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 14px 18px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .nav-links {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">
+        ACME SOLUTIONS
+        <span>Imaginary digital agency</span>
+      </div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="#about">About</a>
+        <button class="btn-primary">Get a pretend quote</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          We build <span>non‑existent</span> websites
+          that somehow still convert.
+        </h1>
+        <p>
+          Acme Solutions is a completely made‑up studio helping equally fictional brands
+          launch products in imaginary markets.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary">Schedule a fake demo</button>
+          <button class="btn-secondary">Download invisible brochure</button>
+        </div>
+        <div class="hero-meta">
+          Trusted by over <strong>0+</strong> companies worldwide. Because none of this is real.
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Dashboard preview">
+        <div class="hero-card-header">
+          <div>
+            <div class="hero-card-title">Campaign Overview</div>
+            <div class="hero-card-sub">Q4 Imaginary Launch</div>
+          </div>
+          <span class="hero-pill">Simulation mode</span>
+        </div>
+        <div class="hero-card-metric">+342%</div>
+        <div class="hero-card-sub">
+          Hypothetical conversion lift after redesigning a site that doesn’t exist.
+        </div>
+        <div class="hero-card-tags">
+          <span>Ghost traffic</span>
+          <span>Pixel-perfect pixels</span>
+          <span>A/B/C/D testing</span>
+          <span>AI‑generated buzzwords</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services" class="section">
+      <div class="section-header">
+        <h2>What we pretend to offer</h2>
+        <p>All services below are proudly 100% fictional.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-label">Service</div>
+          <h3>Imaginary Web Design</h3>
+          <p>
+            Stunning landing pages crafted with care, detail, and just enough vague marketing copy
+            to sound important.
+          </p>
+          <div class="card-meta">
+            Includes: fake user research, hypothetical wireframes, and non‑binding prototypes.
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-label">Service</div>
+          <h3>Quantum Branding Kits</h3>
+          <p>
+            Your logo exists in every possible universe until you pick one.
+            We’ll send you slides full of options.
+          </p>
+          <div class="card-meta">
+            Deliverables: color palettes, type systems, and brand guidelines no one reads.
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-label">Service</div>
+          <h3>Premium Buzzword Consulting</h3>
+          <p>
+            From “synergy stacks” to “frictionless funnels”, we’ll help you say a lot
+            without revealing anything.
+          </p>
+          <div class="card-meta">
+            Perfect for pitch decks, investor updates, and awkward networking events.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="clients" class="section">
+      <div class="section-header">
+        <h2>Fictional clients we haven’t worked with</h2>
+        <p>Absolutely none of these companies exist. They still love us.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Cloudicorn Labs</h3>
+          <p>
+            “Acme took our imaginary SaaS from zero to unicorn valuation overnight.
+            Thankfully, it was all hypothetical.”
+          </p>
+          <div class="card-meta">— Pretend CMO, Cloudicorn Labs</div>
+        </article>
+
+        <article class="card">
+          <h3>Orbit Snack Co.</h3>
+          <p>
+            “Our click‑through rate went out of this world. Literally.
+            We don’t even sell online.”
+          </p>
+          <div class="card-meta">— Marketing Lead, Orbit Snack Co.</div>
+        </article>
+
+        <article class="card">
+          <h3>Lambda Coffee</h3>
+          <p>
+            “The new site captures our brand perfectly: mysterious, minimalist, and mildly confusing.”
+          </p>
+          <div class="card-meta">— Founder, Lambda Coffee</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="cards">
+        <article class="card">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Currently accepting imaginary projects
+          </div>
+          <h3 style="margin-top: 10px;">About Acme Solutions</h3>
+          <p>
+            We’re a remote‑first collective of designers, developers, and strategists who
+            may or may not exist. Together, we help brands prototype the future — even if it’s just for fun.
+          </p>
+          <p class="card-meta">
+            Ready to start something that looks real enough to screenshot and send to your group chat?
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with care and zero backend code. © 2025 Acme Solutions (totally not a real company).
+    <br />
+    <a href="#">Privacy-ish</a> •
+    <a href="#">Terms of Non-Service</a> •
+    <a href="#">Cookie Policy (we prefer chocolate chip)</a>
+  </footer>
+</body>
+</html>
