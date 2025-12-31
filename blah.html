@@ -2,29 +2,35 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Simple JS Runner</title>
+  <title>HTML Live Sandbox</title>
 </head>
 <body>
-  <h2>JavaScript Runner</h2>
+  <h3>Live HTML Sandbox</h3>
 
-  <textarea id="code" rows="10" cols="60">
-// Write JavaScript here
-console.log("Hello!");
-alert("JS executed!");
+  <textarea id="code" rows="15" cols="70">
+<!-- Type FULL HTML here -->
+<script>
+  console.log("JS inside script tag works!");
+</script>
   </textarea>
-  <br><br>
 
-  <button onclick="runCode()">Run</button>
+  <iframe id="preview" style="width:100%; height:300px; border:1px solid #ccc;"></iframe>
 
   <script>
-    function runCode() {
-      const code = document.getElementById("code").value;
-      try {
-        eval(code);
-      } catch (err) {
-        alert("Error: " + err);
-      }
+    const box = document.getElementById("code");
+    const frame = document.getElementById("preview");
+
+    function update() {
+      const doc = frame.contentDocument || frame.contentWindow.document;
+      doc.open();
+      doc.write(box.value);
+      doc.close();
     }
+
+    box.addEventListener("input", update);
+
+    // Run once at start
+    update();
   </script>
 </body>
 </html>
