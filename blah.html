@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JS/HTML/CSS Sandbox</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    .editor-pane, .preview-pane {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .editor-pane {
+      border-right: 1px solid #ccc;
+    }
+
+    header {
+      padding: 8px 10px;
+      background: #f3f3f3;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    header h1 {
+      font-size: 14px;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    button {
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .tabs {
+      display: flex;
+      background: #fafafa;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tab {
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      border-right: 1px solid #ddd;
+      user-select: none;
+    }
+
+    .tab.active {
+      background: #fff;
+      font-weight: 600;
+      border-bottom: 2px solid #007acc;
+    }
+
+    textarea {
+      flex: 1;
+      border: none;
+      resize: none;
+      padding: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      outline: none;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    iframe {
+      flex: 1;
+      border: none;
+      background: #fff;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="editor-pane">
+    <header>
+      <h1>Sandbox Editor</h1>
+      <button id="runBtn">Run ▶</button>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" data-target="htmlEditor">HTML</div>
+      <div class="tab" data-target="cssEditor">CSS</div>
+      <div class="tab" data-target="jsEditor">JS</div>
+    </div>
+
+    <textarea id="htmlEditor">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Demo</title>
+</head>
+<body>
+  <h1>Hello Sandbox</h1>
+  <p>Edit HTML, CSS, and JS, then click Run.</p>
+</body>
+</html>
+    </textarea>
+
+    <textarea id="cssEditor" class="hidden">
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+h1 {
+  color: #007acc;
+}
+    </textarea>
+
+    <textarea id="jsEditor" class="hidden">
+// Your JavaScript here
+console.log("Hello from sandbox JS!");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const p = document.createElement("p");
+  p.textContent = "JS successfully executed.";
+  document.body.appendChild(p);
+});
+    </textarea>
+  </div>
+
+  <div class="preview-pane">
+    <header>
+      <h1>Preview</h1>
+    </header>
+    <iframe id="previewFrame" sandbox="allow-scripts allow-same-origin"></iframe>
+  </div>
+
+  <script>
+    const runBtn = document.getElementById("runBtn");
+    const previewFrame = document.getElementById("previewFrame");
+
+    const htmlEditor = document.getElementById("htmlEditor");
+    const cssEditor = document.getElementById("cssEditor");
+    const jsEditor = document.getElementById("jsEditor");
+
+    const tabs = document.querySelectorAll(".tab");
+    const editors = { htmlEditor, cssEditor, jsEditor };
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        Object.values(editors).forEach(ed => ed.classList.add("hidden"));
+        const targetId = tab.getAttribute("data-target");
+        editors[targetId].classList.remove("hidden");
+      });
+    });
+
+    function buildSourceDocument(html, css, js) {
+      return `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <style>
+              ${css}
+            </style>
+          </head>
+          <body>
+            ${html}
+            <script>
+              ${js}
+            <\/script>
+          </body>
+        </html>
+      `;
+    }
+
+    function runCode() {
+      const html = htmlEditor.value;
+      const css = cssEditor.value;
+      const js = jsEditor.value;
+
+      const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+      doc.open();
+      doc.write(buildSourceDocument(html, css, js));
+      doc.close();
+    }
+
+    runBtn.addEventListener("click", runCode);
+
+    // Run once at start
+    runCode();
+  </script>
+</body>
+</html>
