@@ -79,15 +79,15 @@
         this.moveFloor();
       },
       draw: function() {
-        ctx.fillStyle = "cyan";
+        ctx.fillStyle = "green";
         ctx.fillRect (0, 0, this.width, this.height);
         for(index in this.floorTiles) {
           var tile = this.floorTiles[index];
           var y = world.height - tile.height;
-          ctx.fillStyle = "indigo";
+          ctx.fillStyle = "red";
           ctx.fillRect(tile.x, y, tile.width, tile.height);
         }
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "black";
         ctx.font = "28px Arial";
         ctx.fillText("Speed: " + this.speed, 10, 40);
         ctx.fillText("Travelled: " + this.distanceTravelled, 10, 75);
@@ -138,7 +138,7 @@
         this.applyGravity();
       },
       draw: function() {
-        ctx.fillStyle = "mediumvioletred";
+        ctx.fillStyle = "yellow";
         ctx.fillRect(player.x, player.y - player.height, this.height, this.width);
       }
     };
