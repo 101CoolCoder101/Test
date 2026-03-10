@@ -84,7 +84,7 @@
         for(index in this.floorTiles) {
           var tile = this.floorTiles[index];
           var y = world.height - tile.height;
-          ctx.fillStyle = "lawngreen";
+          ctx.fillStyle = "green";
           ctx.fillRect(tile.x, y, tile.width, tile.height);
         }
         ctx.fillStyle = "black";
@@ -138,7 +138,7 @@
         this.applyGravity();
       },
       draw: function() {
-        ctx.fillStyle = "gold";
+        ctx.fillStyle = "chocolate";
         ctx.fillRect(player.x, player.y - player.height, this.height, this.width);
       }
     };
