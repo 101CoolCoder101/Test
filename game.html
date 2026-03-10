@@ -79,12 +79,12 @@
         this.moveFloor();
       },
       draw: function() {
-        ctx.fillStyle = "green";
+        ctx.fillStyle = "blue";
         ctx.fillRect (0, 0, this.width, this.height);
         for(index in this.floorTiles) {
           var tile = this.floorTiles[index];
           var y = world.height - tile.height;
-          ctx.fillStyle = "red";
+          ctx.fillStyle = "green";
           ctx.fillRect(tile.x, y, tile.width, tile.height);
         }
         ctx.fillStyle = "black";
