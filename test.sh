@@ -1,4 +1,5 @@
 #!/bin/bash
+#for KoTH
 if [ "$EUID" -ne 0 ]; then
     echo "Run as root"
     exit
