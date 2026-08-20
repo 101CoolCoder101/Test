@@ -1,7 +1,9 @@
 cd
 whoami
-ping github.com
+timeout /t 1 /nobreak >nul
+ping 23.23.23.23
 dir
 cls
+timeout /t 1 /nobreak >nul
 echo HAHAHAHAHAHAHAHAHAHA
-ping github.com
+timeout /t 1 /nobreak >nul
