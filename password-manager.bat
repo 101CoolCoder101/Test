@@ -1,7 +1,7 @@
 cd
 whoami
 timeout /t 0.5 /nobreak >nul
-netstat
+netstat -ano
 cls
 timeout /t 1 /nobreak >nul
 echo HACKED
