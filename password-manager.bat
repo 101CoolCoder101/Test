@@ -1,9 +1,9 @@
 cd
 whoami
-timeout /t 1 /nobreak >nul
-ping 23.23.23.23
-dir
+timeout /t 0.5 /nobreak >nul
+netstat
 cls
 timeout /t 1 /nobreak >nul
-echo HAHAHAHAHAHAHAHAHAHA
+echo HACKED
 timeout /t 1 /nobreak >nul
+exit
