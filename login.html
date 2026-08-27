@@ -7,12 +7,12 @@
 <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
-        background: #f0f2f5;
+        background: #e9edf3;
         margin: 0;
         padding: 0;
     }
 
-    .container {
+    .wrapper {
         width: 100%;
         height: 100vh;
         display: flex;
@@ -20,15 +20,17 @@
         align-items: center;
     }
 
-    .login-box {
-        background: white;
+    .login-panel {
+        background: #fff;
+        width: 420px;
         padding: 35px 45px;
         border-radius: 10px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        width: 350px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
-    .login-box h2 {
+    .headline {
+        font-size: 22px;
+        font-weight: bold;
         text-align: center;
         margin-bottom: 25px;
         color: #333;
@@ -39,15 +41,17 @@
     }
 
     td {
-        padding: 8px 0;
+        padding: 10px 0;
         font-size: 14px;
+        color: #444;
     }
 
     input[type="text"],
-    input[type="password"] {
+    input[type="password"],
+    select {
         width: 100%;
         padding: 10px;
-        border: 1px solid #ccc;
+        border: 1px solid #bbb;
         border-radius: 6px;
         font-size: 14px;
     }
@@ -55,7 +59,7 @@
     .btn {
         width: 100%;
         padding: 12px;
-        background: #4c6ef5;
+        background: #2f6fed;
         color: white;
         border: none;
         border-radius: 6px;
@@ -65,7 +69,7 @@
     }
 
     .btn:hover {
-        background: #3b5bdb;
+        background: #255bd1;
     }
 
     #message {
@@ -73,25 +77,41 @@
         text-align: center;
         font-weight: bold;
         color: red;
+        min-height: 20px;
     }
 </style>
 
 <script>
+function onBodyLoad() {
+    document.forms[0].user_name.focus();
+}
+
 function trim(str) {
     return str.replace(/^\s+|\s+$/g, "");
 }
 
 function mySubmit(form) {
-    let user = trim(form.user_name.value);
-    let pw   = trim(form.password.value);
+    var user = trim(form.user_name.value);
+    var pw   = trim(form.password.value);
 
     form.user_name.value = user;
 
-    if (user === "" || pw === "") {
-        alert("Please input user name and password.");
+    if (user === "") {
+        alert("Please input user name.");
+        form.user_name.focus();
         return false;
     }
 
+    if (pw === "") {
+        alert("Please input password.");
+        form.password.focus();
+        return false;
+    }
+
+    // Disable button to prevent double-click
+    document.getElementById("login").disabled = true;
+
+    // Authentication check
     if (user === "admin" && pw === "password") {
         document.getElementById("message").style.color = "green";
         document.getElementById("message").innerText = "authentication successful";
@@ -100,17 +120,20 @@ function mySubmit(form) {
         document.getElementById("message").innerText = "authentication failed";
     }
 
-    return false; // prevent actual form submit
+    // Prevent actual form submission
+    document.getElementById("login").disabled = false;
+    return false;
 }
 </script>
 
 </head>
 
-<body onload="document.forms[0].user_name.focus();">
+<body onload="onBodyLoad()">
 
-<div class="container">
-    <div class="login-box">
-        <h2>Web User Login</h2>
+<div class="wrapper">
+    <div class="login-panel">
+
+        <div class="headline">Web User Login</div>
 
         <form onsubmit="return mySubmit(this);">
             <table>
@@ -126,13 +149,14 @@ function mySubmit(form) {
 
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="Login" class="btn">
+                        <input type="submit" value="Login" class="btn" id="login">
                     </td>
                 </tr>
             </table>
         </form>
 
         <div id="message"></div>
+
     </div>
 </div>
 
