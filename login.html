@@ -1,164 +1,107 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Web User Login</title>
-<meta charset="UTF-8">
-
-<style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: #e9edf3;
-        margin: 0;
-        padding: 0;
-    }
-
-    .wrapper {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .login-panel {
-        background: #fff;
-        width: 420px;
-        padding: 35px 45px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
-
-    .headline {
-        font-size: 22px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 25px;
-        color: #333;
-    }
-
-    table {
-        width: 100%;
-    }
-
-    td {
-        padding: 10px 0;
-        font-size: 14px;
-        color: #444;
-    }
-
-    input[type="text"],
-    input[type="password"],
-    select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #bbb;
-        border-radius: 6px;
-        font-size: 14px;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 12px;
-        background: #2f6fed;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 15px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
-
-    .btn:hover {
-        background: #255bd1;
-    }
-
-    #message {
-        margin-top: 15px;
-        text-align: center;
-        font-weight: bold;
-        color: red;
-        min-height: 20px;
-    }
+<html><head>
+<title>Web user login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/skin/custom/login/index.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body
+{
+    font-family:Arial, Helvetica, sans-serif;
+}
 </style>
+<script language=javascript src="/customdir/custom.js"></script>
+<script language=javascript>
+function onBodyLoad()
+{
 
-<script>
-function onBodyLoad() {
     document.forms[0].user_name.focus();
 }
 
-function trim(str) {
-    return str.replace(/^\s+|\s+$/g, "");
+
+function trim( str )
+{
+    str = str.replace(/^\s*/, "");
+    str = str.replace(/\s*$/, "");
+    return str;
 }
 
-function mySubmit(form) {
-    var user = trim(form.user_name.value);
-    var pw   = trim(form.password.value);
 
-    form.user_name.value = user;
+function mySubmit(oForm)
+{
+    var sUserName = trim(oForm.user_name.value);
 
-    if (user === "") {
+
+    oForm.user_name.value = sUserName;
+
+
+    if ( sUserName=="" )
+    {
         alert("Please input user name.");
-        form.user_name.focus();
+        oForm.user_name.focus();
         return false;
     }
 
-    if (pw === "") {
-        alert("Please input password.");
-        form.password.focus();
-        return false;
-    }
 
-    // Disable button to prevent double-click
+    try{
+        // save the language to cookie, and no expiress 
+        document.cookie = "lang=" + oForm.lang.value + ";path=/";
+    }
+    catch(e)
+    {
+        // cookie not be opened
+    }
     document.getElementById("login").disabled = true;
-
-    // Authentication check
-    if (user === "admin" && pw === "password") {
-        document.getElementById("message").style.color = "green";
-        document.getElementById("message").innerText = "authentication successful";
-    } else {
-        document.getElementById("message").style.color = "red";
-        document.getElementById("message").innerText = "authentication failed";
-    }
-
-    // Prevent actual form submission
-    document.getElementById("login").disabled = false;
-    return false;
+    return true;
 }
 </script>
-
 </head>
-
 <body onload="onBodyLoad()">
+<form action="/Web/login" method=post onsubmit="return mySubmit(this);">
+<div class="da_width">
+  <div class="dl_back" id="dl_margin">
+    <div style="float:left;width:370px;margin-top:83px;" align="right">
 
-<div class="wrapper">
-    <div class="login-panel">
 
-        <div class="headline">Web User Login</div>
-
-        <form onsubmit="return mySubmit(this);">
-            <table>
-                <tr>
-                    <td>User Name</td>
-                    <td><input type="text" name="user_name" maxlength="55"></td>
-                </tr>
-
-                <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="password" maxlength="88"></td>
-                </tr>
-
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="Login" class="btn" id="login">
-                    </td>
-                </tr>
-            </table>
-        </form>
-
-        <div id="message"></div>
-
-    </div>
 </div>
 
+
+<div class="dl_right1"><div class="dl_headline_en"></div>
+
+<table class="table1" cellpadding="1" cellspacing="1" width="228px">
+<tr>
+<td width="30%">User Name</td>
+<td width="70%"><input type="text" name="user_name" class="dl_text" maxlength="55"/>
+</td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="password" name="password" class="dl_text" maxlength="88"/></td>
+</tr>
+
+
+<script>
+    var nLanguageSupported = WnmGetLanguageSupported ();
+    if (0 != (2 & nLanguageSupported))
+        document.write("<tr>");
+    else
+        document.write("<tr style='display:none'>");
+</script>
+<td>Language</td>
+<td>
+  <select name="lang" id="lang">
+      <option value=0>English
+      <option value=1>中文
+  </select>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center" class="button"><input type="submit" value="Login"  class="an" id="login"/></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+
+
+</form>
 </body>
 </html>
