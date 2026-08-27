@@ -1,62 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<title>Web User Login</title>
 <meta charset="UTF-8">
-<title>Login</title>
 
 <style>
     body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f0f2f5;
         margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 100%;
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(135deg, #4c6ef5, #7950f2);
-        font-family: Arial, sans-serif;
     }
 
     .login-box {
         background: white;
-        padding: 40px;
-        width: 320px;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        animation: fadeIn 0.6s ease;
+        padding: 35px 45px;
+        border-radius: 10px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        width: 350px;
     }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    h2 {
+    .login-box h2 {
         text-align: center;
         margin-bottom: 25px;
         color: #333;
     }
 
-    input {
+    table {
         width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        font-size: 15px;
     }
 
-    button {
+    td {
+        padding: 8px 0;
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .btn {
         width: 100%;
         padding: 12px;
         background: #4c6ef5;
         color: white;
         border: none;
-        border-radius: 8px;
-        font-size: 16px;
+        border-radius: 6px;
+        font-size: 15px;
         cursor: pointer;
-        transition: 0.2s;
+        margin-top: 10px;
     }
 
-    button:hover {
+    .btn:hover {
         background: #3b5bdb;
     }
 
@@ -67,25 +75,22 @@
         color: red;
     }
 </style>
-</head>
-
-<body>
-
-<div class="login-box">
-    <h2>Login</h2>
-
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-
-    <button onclick="login()">Login</button>
-
-    <div id="message"></div>
-</div>
 
 <script>
-function login() {
-    const user = document.getElementById("username").value;
-    const pw = document.getElementById("password").value;
+function trim(str) {
+    return str.replace(/^\s+|\s+$/g, "");
+}
+
+function mySubmit(form) {
+    let user = trim(form.user_name.value);
+    let pw   = trim(form.password.value);
+
+    form.user_name.value = user;
+
+    if (user === "" || pw === "") {
+        alert("Please input user name and password.");
+        return false;
+    }
 
     if (user === "admin" && pw === "password") {
         document.getElementById("message").style.color = "green";
@@ -94,8 +99,42 @@ function login() {
         document.getElementById("message").style.color = "red";
         document.getElementById("message").innerText = "authentication failed";
     }
+
+    return false; // prevent actual form submit
 }
 </script>
+
+</head>
+
+<body onload="document.forms[0].user_name.focus();">
+
+<div class="container">
+    <div class="login-box">
+        <h2>Web User Login</h2>
+
+        <form onsubmit="return mySubmit(this);">
+            <table>
+                <tr>
+                    <td>User Name</td>
+                    <td><input type="text" name="user_name" maxlength="55"></td>
+                </tr>
+
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="password" maxlength="88"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Login" class="btn">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <div id="message"></div>
+    </div>
+</div>
 
 </body>
 </html>
